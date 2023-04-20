@@ -21,6 +21,12 @@ registerApplication({
   activeWhen: ["/demojs"]
 });
 
+registerApplication({
+  name: "@study/reactjs",
+  app: () => System.import("@study/reactjs"),
+  activeWhen: ["/reactjs"]
+});
+
 start({
   urlRerouteOnly: true,
 });

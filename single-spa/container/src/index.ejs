@@ -32,7 +32,9 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
       }
     }
   </script>
@@ -46,7 +48,8 @@
     {
       "imports": {
         "@study/root-config": "//localhost:9000/study-root-config.js",
-        "@study/demojs": "//localhost:9001/study-demojs.js"
+        "@study/demojs": "//localhost:9001/study-demojs.js",
+        "@study/reactjs": "//localhost:9002/study-reactjs.js"
       }
     }
   </script>
@@ -69,6 +72,7 @@
 </head>
 <body>
   <main></main>
+  <div id="root"></div>
   <script>
     System.import('@study/root-config');
   </script>
