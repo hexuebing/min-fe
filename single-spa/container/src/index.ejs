@@ -56,7 +56,8 @@
         "@study/reactjs": "//localhost:9002/study-reactjs.js",
         "@study/vuejs": "//localhost:9003/js/app.js",
         "@study/navbar": "//localhost:9004/study-navbar.js",
-        "@study/tools": "//localhost:9005/study-tools.js"
+        "@study/tools": "//localhost:9005/study-tools.js",
+        "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
       }
     }
   </script>
@@ -78,6 +79,23 @@
   <% } %>
 </head>
 <body>
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <application name="@study/navbar"></application>
+      <route default>
+        <application name="@single-spa/welcome"></application>
+      </route>
+      <route path="demojs">
+        <application name="@study/demojs"></application>
+      </route>
+      <route path="reactjs">
+        <application name="@study/reactjs"></application>
+      </route>
+      <route path="vuejs">
+        <application name="@study/vuejs"></application>
+      </route>
+    </single-spa-router>
+  </template>
   <main></main>
   <div id="root"></div>
   <script>
