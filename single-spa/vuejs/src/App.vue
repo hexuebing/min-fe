@@ -6,23 +6,30 @@
       <router-link to="/bar">bar</router-link>
     </div>
     <router-view></router-view>
+    <button @click="clickHandler">click me</button>
   </div>
 </template>
 
 <script>
-import Parcel from 'single-spa-vue/parcel'
-import { mountRootParcel } from "single-spa"
+import Parcel from "single-spa-vue/parcel";
+import { mountRootParcel } from "single-spa";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Parcel
+    Parcel,
   },
-  data(){
+  data() {
     return {
       parcelConfig: window.System.import("@study/navbar"),
-      mountParcel: mountRootParcel
-    }
-  }
-}
+      mountParcel: mountRootParcel,
+    };
+  },
+  methods: {
+    async clickHandler() {
+      const fun = await window.System.import("@study/tools");
+      fun.publicApiFunction("vuejs");
+    },
+  },
+};
 </script>
