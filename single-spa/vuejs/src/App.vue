@@ -27,9 +27,13 @@ export default {
   },
   methods: {
     async clickHandler() {
-      const fun = await window.System.import("@study/tools");
-      fun.publicApiFunction("vuejs");
+      const toolsModule = await window.System.import("@study/tools");
+      toolsModule.publicApiFunction("vuejs");
     },
+  },
+  async mounted() {
+    const toolsModule = await window.System.import("@study/tools");
+    toolsModule.sharedSubject.subscribe(console.log);
   },
 };
 </script>
