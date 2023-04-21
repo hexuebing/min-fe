@@ -5,7 +5,7 @@
 
 module.exports = {
   chainWebpack: config => {
-    config.externals(["vue", "vue-router"])
+    config.externals(["vue", "vue-router", "single-spa"])
   },
   configureWebpack: {
     output: {
