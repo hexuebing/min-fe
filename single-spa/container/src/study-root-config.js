@@ -27,6 +27,12 @@ registerApplication({
   activeWhen: ["/reactjs"]
 });
 
+registerApplication({
+  name: "@study/vuejs",
+  app: () => System.import("@study/vuejs"),
+  activeWhen: ["/vuejs"]
+});
+
 start({
   urlRerouteOnly: true,
 });
