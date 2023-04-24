@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const packageJSON = require("./package.json");
 
 module.exports = {
-  entry: "./src/app.js",
   mode: "development",
+  devtool: "source-map",
   devServer: {
     port: 8080,
     historyApiFallback: true,
@@ -24,5 +26,16 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "container",
+      remotes: {
+        reactApp: "reactApp@http://localhost:8081/remoteEntry.js",
+      },
+      shared: packageJSON.dependencies,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
 };
