@@ -3,10 +3,9 @@ import { Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./components/Home.js";
 import About from "./components/About.js";
 
-import { createMemoryHistory } from "history";
+// import { createMemoryHistory } from "history";
 
-function App() {
-  const history = createMemoryHistory();
+function App({ history }) {
   return (
     <Router history={history}>
       <ul>
