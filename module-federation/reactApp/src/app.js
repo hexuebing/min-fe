@@ -1,11 +1,14 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./components/Home.js";
 import About from "./components/About.js";
 
+import { createMemoryHistory } from "history";
+
 function App() {
+  const history = createMemoryHistory();
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -22,7 +25,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

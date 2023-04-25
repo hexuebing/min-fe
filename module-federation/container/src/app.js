@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import ReactApp from "./reactApp.js";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 function App() {
   return (
-    <div>
-      container works
-      <ReactApp />
-    </div>
+    <Router history={history}>
+      <Switch>
+        <Route path="/">
+          <ReactApp></ReactApp>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
